@@ -6,6 +6,7 @@
   &-list {
     width: 400px;
     .empty-state {
+      background-color:$white;
       text-align: center;
       border: 1px solid $secondary-light;
       padding:40px;
