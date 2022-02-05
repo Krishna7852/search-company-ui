@@ -21,7 +21,7 @@ const Search: React.FunctionComponent<ISearchProps> = ({placeholder, delay, onSe
 
   useEffect(() => {
     onSearch(debouncedValue);
-  }, [debouncedValue]);
+  }, [debouncedValue, onSearch]);
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     setQuery(e.target.value);

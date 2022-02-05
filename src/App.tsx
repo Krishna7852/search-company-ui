@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import './App.scss';
 import { companyService } from './services/Api';
 import { CompanyDetails } from './models';
@@ -12,15 +12,15 @@ import Search from './components/Search/Search';
 function App() {
   // State and setters for selected company
   const [selectedCompany, setSelectedCompany] = useState<CompanyDetails>();
-  
+
   // State and setters for selected details
   const [companyDetails, setCompanyDetails] = useState<CompanyDetails[]>([]);
-  
+
   /**
-   * 
+   *
    * @param {string} query - The query search in input field.
    */
-  const searchHandler = (query: string): void => {
+  const searchHandler = useCallback((query: string) => {
     const params = query ? query : 'a'; // Passing default value as "a" to display the default records
     companyService
       .getCompanyDetails(params)
@@ -30,7 +30,8 @@ function App() {
       .catch(() => {
         setCompanyDetails([]);
       });
-  };
+  }, []);
+
   return (
     <div className='main-container'>
       {!!selectedCompany && <Card data={selectedCompany} />}
@@ -41,7 +42,10 @@ function App() {
           onSearch={searchHandler}
         />
         {!!companyDetails.length ? (
-          <List data={companyDetails} onSelect={(data) => setSelectedCompany(data)}/>
+          <List
+            data={companyDetails}
+            onSelect={(data) => setSelectedCompany(data)}
+          />
         ) : (
           <div className='empty-state'>No Matching records found..☹️!!</div>
         )}
