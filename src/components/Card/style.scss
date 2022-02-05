@@ -1,0 +1,11 @@
+@import '../../shared/styles/main';
+.card-container {
+    background-color: $white;
+    text-align:center;
+    padding: 20px;
+    margin: 0 10px;
+    border: 1px solid $secondary-light;
+    .domain {
+        color: $secondary-soft;
+    }
+}

@@ -1,0 +1,34 @@
+@import '../../shared/styles/main';
+
+.list-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: $white;
+  border: 1px solid $secondary-light;
+  li {
+    &:not(:first-child) {
+        border-top: 1px solid $secondary-light;
+    }
+    text-align: left;
+    &:hover , &.selected-item {
+      background-color: $primary-light;
+      cursor: pointer;
+    }
+    padding: 5px;
+  }
+  .list-item {
+    color: $secondary-dark;
+    display: flex;
+    align-items: center;
+    figure {
+      margin: 0;
+      padding: 10px;
+      .logo {
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../shared/styles/main';
+.search-container {
+    margin-bottom:5px;
+    input {
+    width: calc(100% - 12px);
+    padding: 10px 5px;
+    border-radius:5px;
+    border: 1px solid $secondary-light;
+    outline: none;
+    &:hover, &:focus {
+        border: 1px solid $primary-soft;
+    }
+    }
+}

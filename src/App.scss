@@ -1,0 +1,14 @@
+@import './shared/styles/main';
+.main-container {
+  display: flex;
+  justify-content: center;
+  margin-top:40px;
+  &-list {
+    width: 400px;
+    .empty-state {
+      text-align: center;
+      border: 1px solid $secondary-light;
+      padding:40px;
+    }
+  }
+}
